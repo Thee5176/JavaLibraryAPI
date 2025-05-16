@@ -6,43 +6,37 @@ import java.io.FileReader;
 import java.io.IOException;
 
 //話題：チェーン例外
-public class FileProcess {
+public class FileProcessor {
     private BufferedReader bf;
 
-    public FileProcess(){};
-
-    public void readFile(String filename) throws ProcessingException {
+    public static void readFile(String filename) throws ProcessingException {
         //ファイルを開く
-        try {
-            filename = "src/main/resources/" + filename;
-            bf = new BufferedReader(new FileReader(filename));
-        } catch(FileNotFoundException e){
-            throw new ProcessingException("Error: ファイルを開けない。" , e);
-        }
+        String fullPath = "src/main/resources/" + filename;
+        try (BufferedReader bf = new BufferedReader(new FileReader(fullPath));) {
 
-        //ファイルを読み込む
-        try {
-            while(bf.ready()) {
-                String file = bf.readLine();
-                System.out.println(file);
+            String line;
+            while((line = bf.readLine()) != null) {
+                System.out.println(line);
             }
+
+        } catch(FileNotFoundException e){
+            throw new ProcessingException("ファイルが見つかりません。"+ fullPath , e);
         } catch(IOException e){
-            throw new ProcessingException("Error: ファイルを読めない。", e);
+            throw new ProcessingException("ファイル読み込みエラー。", e);
         }
     }
 
 
     public static void main(String[] args) {
-        FileProcess myProcessor = new FileProcess();
         try {
-            myProcessor.readFile("notfound.txt");
+            FileProcessor.readFile("notfound.txt");
         } catch (ProcessingException e){
             System.out.println("キャッチされた例外: " + e.getClass());
             System.out.println("例外の原因：" + e.getCause());
         }
 
         try {
-            myProcessor.readFile("file.txt");
+            FileProcessor.readFile("file.txt");
         } catch (ProcessingException e){
             System.out.println("キャッチされた例外: " + e.getClass());
             System.out.println("例外の原因：" + e.getCause());
