@@ -1,0 +1,6 @@
+2023-10-15 08:30:45 [INFO] Server started successfully
+2023-10-15 08:45:12 [WARNING] Disk space 85% used
+2023-10-15 09:12:33 [ERROR] Database connection failed
+2023-10-15 10:05:21 [INFO] User admin logged in
+2023-10-15 11:23:47 [ERROR] File not found: /var/www/index.html
+2023-10-15 12:34:56 [DEBUG] Processing request ID 12345
