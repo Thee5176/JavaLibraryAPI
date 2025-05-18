@@ -9,6 +9,21 @@ import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
 
+//目的: CSVファイルのデータをJSON形式に変換する。
+
+//手順:
+//BufferedReader でCSVを読み込む。
+//各行をカンマで分割して値を抽出。
+//JacksonまたはGsonライブラリでJSONオブジェクトにマッピング。
+//JSONデータをファイルに書き出す。
+
+//ヒント:
+//最初の行をヘッダーとして扱うとシンプル。
+//Jacksonの ObjectMapper でJSONをシリアライズする。
+
+//必要なツール:
+//Jacksonライブラリ (com.fasterxml.jackson.core)
+//ノート：上記のRepositoryはもう使わなくなっていますから、使えません。解決としてtoString()メソッドをJSONフォ−マットにされました。
 public class CsvJsonConverter {
     public CsvJsonConverter(){}
 

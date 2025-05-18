@@ -1,6 +1,16 @@
 package com.thee5176.part10_exception.backaccount;
 
-//話題：
+//目的: 残高を超える引き出し要求時に InsufficientFundsException をスローする銀行アプリを作成する。
+
+//手順:
+//Exception を継承して InsufficientFundsException クラスを定義する。
+//BankAccount クラスに withdraw() メソッドを実装する。
+//withdraw() 内で引き出し額が残高を超える場合、カスタム例外をスローする。
+
+//ヒント:
+//throw new InsufficientFundsException("残高不足です") を使用。
+//main メソッドで try-catch ブロックを使って例外を捕捉する。
+
 public class BankAccount {
     private double amount;           //amount of money
     private String name;             //account holder's name

@@ -9,6 +9,20 @@ import java.util.List;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
+//目的: サーバーログファイルを解析し、タイムスタンプとエラーメッセージを抽出してレポートを作成する。
+
+//手順:
+//ログファイルを1行ずつ読み込む。
+//正規表現（Pattern と Matcher）でタイムスタンプとエラーメッセージを抽出。
+//抽出したデータを新しいファイルに書き出す。
+
+//ヒント:
+//タイムスタンプ用の正規表現例: \d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}
+//Files.write() で簡単にファイル書き込みが可能。
+
+//必要なツール:
+//java.util.regex（正規表現）
+//BufferedWriter（出力用）
 
 public class LogFileAnalyzer {
     private BufferedReader bfReader;
